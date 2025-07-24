@@ -36,6 +36,7 @@ Powerpipe server runs in the foreground; Press Ctrl-C to exit.`,
 
 	cmdconfig.
 		OnCmd(cmd).
+		AddCloudFlags().
 		AddModLocationFlag().
 		AddBoolFlag(constants.ArgHelp, false, "Help for service start", cmdconfig.FlagOptions.WithShortHand("h")).
 		AddIntFlag(constants.ArgPort, dashboardserver.DashboardServerDefaultPort, "Web server port").
@@ -89,7 +90,11 @@ func runServerCmd(cmd *cobra.Command, _ []string) {
 	error_helpers.FailOnError(err)
 
 	// send it over to the powerpipe API Server
-	powerpipeService, err := api.NewAPIService(ctx, api.WithWebSocket(webSocket), api.WithWorkspace(modInitData.Workspace), api.WithHttpPort(serverPort))
+	powerpipeService, err := api.NewAPIService(ctx,
+		api.WithWebSocket(webSocket),
+		api.WithWorkspace(modInitData.Workspace),
+		api.WithHTTPPortAndListenConfig(serverPort, serverListen),
+	)
 	if err != nil {
 		error_helpers.FailOnError(err)
 	}

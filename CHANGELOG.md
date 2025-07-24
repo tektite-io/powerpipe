@@ -1,3 +1,33 @@
+## v1.2.8 [2025-07-10]
+_Bug Fixes_
+- Fix regression where powerpipe was failing to run detections from dependant mods if steampipe service was not running. ([#824](https://github.com/turbot/powerpipe/issues/824))
+- Fix issue where powerpipe server was failing to resolve the default pipes token. ([#818](https://github.com/turbot/powerpipe/issues/818))
+- Fix issue where query run snapshot output was returning a 0 exit code even incase of query failures. ([#816](https://github.com/turbot/powerpipe/issues/816))
+
+_Dependencies_
+- Upgrade `pbkdf2` package to remediate critical vulnerabilities.
+
+## v1.2.7 [2025-05-21]
+_Bug Fixes_
+* Fix issue where powerpipe was exposing the server port to the internet even when listen was local. ([#761](https://github.com/turbot/powerpipe/issues/761))
+* Fix issue where benchmark/control json output was not printing the complete JSON to stdout. ([#791](https://github.com/turbot/powerpipe/issues/791))
+* Fix issue where the `from` property in Tailpipe connections was getting parsed incorrectly. ([#790](https://github.com/turbot/powerpipe/issues/790))
+
+## v1.2.6 [2025-05-08]
+_Bug Fixes_
+* Fix issue where powerpipe was failing to run detections from dependant mods if steampipe service was not running. ([#788](https://github.com/turbot/powerpipe/issues/788))
+* Fix issue where detection benchmarks were not showing date range selector in powerpipe server. ([#789](https://github.com/turbot/powerpipe/issues/789))
+* Fix issue where powerpipe was failing to export detection benchmarks. ([#796](https://github.com/turbot/powerpipe/issues/796))
+
+## v1.2.5 [2025-04-14]
+_Bug Fixes_
+* Fix the table data cells displaying a vertical scroll in some browsers. ([#765](https://github.com/turbot/powerpipe/issues/765))
+* Fix issue where setting custom relative duration not shown in presets does not update the relative timestamp. ([#769](https://github.com/turbot/powerpipe/issues/769))
+
+## v1.2.4 [2025-04-04]
+_Bug Fixes_
+* Table headers for numeric columns are now right-aligned like the row-level cell content. ([#755](https://github.com/turbot/powerpipe/issues/755)) 
+
 ## v1.2.3 [2025-04-02]
 _Bug Fixes_
 - Fix the supported export formats in `powerpipe query run` command. ([#539](https://github.com/turbot/powerpipe/issues/539))
